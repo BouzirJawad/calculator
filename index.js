@@ -20,9 +20,11 @@ function calculate(num1, num2, operator) {
         case '4':
             return calc.dev(num1,num2);
         case '5':
-            return calc.power(num1, num2);
+            return calc.power(num1);
         case '6':
             return calc.squareRoot(num1);
+        case '7':
+            return calc.factorial(num1);
         default:
             return "invalid operator";
     }
@@ -41,9 +43,14 @@ rl.question("Enter a number: (or type 'exit' to quit.) \n", (firstNum) => {
 
     num1 = Number(firstNum);
 
-    rl.question("Choose an operator: \n 1. (+)\n 2. (-)\n 3. (*)\n 4. (/)\n 5. (power)\n 6. (square root)\n", (operator) => {
+    rl.question("Choose an operator: \n 1. (+)\n 2. (-)\n 3. (*)\n 4. (/)\n 5. (power)\n 6. (square root)\n 7. (factorial)\n", (operator) => {
     
     if (operator === '6') {
+        result = calculate(num1, num2, operator);
+        console.log(`The result: ${result}`);
+        Calculator();
+    }
+    else if (operator === '7') {
         result = calculate(num1, num2, operator);
         console.log(`The result: ${result}`);
         Calculator();
@@ -52,7 +59,6 @@ rl.question("Enter a number: (or type 'exit' to quit.) \n", (firstNum) => {
     else{
         rl.question("Enter the second number: ", (secNum) => {
             num2 = Number(secNum);
-
             result = calculate(num1, num2, operator);
             console.log(`The result: ${result}`);
             Calculator();

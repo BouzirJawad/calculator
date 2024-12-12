@@ -11,7 +11,16 @@ class Calculator{
     squareRoot(a) {if (a < 0) return "Cannot calculate square root of a negative number!!";
         return Math.sqrt(a)}
 
-    power(a,b) {return Math.pow(a,b)}
+    power(a) {return Math.pow(a)}
+
+    factorial(a) {
+        if (a < 0) return "factorial of a negative number is not defined.";
+        let result =1;
+        for (let i = 1; i<a+1; i++) {
+            result = result * i;
+        }
+        return result;
+    }
 }
 
 module.exports = Calculator;
